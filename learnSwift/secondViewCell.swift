@@ -22,7 +22,7 @@ class secondViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         if !self.isEqual(nil) {
             leftTopLabel = UILabel()
-            leftTopLabel.frame = CGRectMake(15, 0, 200, 40)
+            leftTopLabel.frame = CGRect.init(x: 15, y: 0, width: 200, height: 40)
             self.contentView.addSubview(leftTopLabel)
             
             

@@ -18,7 +18,7 @@ class sampleSwiftCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         if !self.isEqual(nil) {
             titleLabel = UILabel()
-            titleLabel.frame = CGRectMake(20, self.frame.size.height/2, 200, 40)
+            titleLabel.frame = CGRect.init(x: 20, y: frame.size.height/2, width: 200, height: 40)
             self.contentView.addSubview(titleLabel)
         }
     }

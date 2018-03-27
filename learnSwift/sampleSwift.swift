@@ -20,68 +20,64 @@ class sampleSwift: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
         self.title = "sample"
         
-        self.view.backgroundColor = UIColor.greenColor()
-        tableview = UITableView(frame: CGRectMake(0, 0, 320, 640))
+        self.view.backgroundColor = UIColor.green
+        tableview = UITableView(frame: CGRect.init(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: view.frame.size.width, height: view.frame.size.height))
         tableview.delegate = self;
         tableview.dataSource = self;
         self.view.addSubview(tableview)
-        tableview.registerClass(sampleSwiftCell.self, forCellReuseIdentifier: "cell")
+        tableview.register(sampleSwiftCell.self, forCellReuseIdentifier: "cell")
         
         //leftbar
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add ,target: self ,action: #selector(sampleSwift.actionMethod))
-        self.navigationItem.rightBarButtonItem = addButton
+//        let leftBarItem = UIBarButtonItem(UIBarButtonItemStyle: UIBarButtonItemStyle.plain, target: self, action: #sele)
+//        self.navigationItem.rightBarButtonItem = leftBarItem
         
         dataArray = ["我是第一行","我是第二行","我是第三行","我是第四行","我是第五行"];
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArray.count;
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier:String = "cell"
-        var cell:sampleSwiftCell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! sampleSwiftCell
-        if cell.isEqual(nil) {
-            cell = sampleSwiftCell(style: .Default,reuseIdentifier: identifier)
-        }
-        cell.titleLabel?.text = dataArray.objectAtIndex(indexPath.row) as? String
+        
+        let cell = (tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)) as UITableViewCell
+        cell.textLabel?.text = dataArray[indexPath.row] as? String
         return cell;
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100;
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = secondViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return .Delete
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.delete
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            dataArray.removeObjectAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        }
-    }
+    
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .delete {
+//            dataArray.removeObjectAtIndex(indexPath.row)
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        }
+//    }
     
     
     func actionMethod(){
-        tableview.editing = !tableview.editing
+        tableview.isEditing = !tableview.isEditing
     }
 
     override func didReceiveMemoryWarning() {
