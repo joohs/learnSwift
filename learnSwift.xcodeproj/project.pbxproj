@@ -19,6 +19,12 @@
 		61B8AA151D75A7B400C96119 /* learnSwiftTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B8AA141D75A7B400C96119 /* learnSwiftTests.m */; };
 		61B8AA201D75A7B400C96119 /* learnSwiftUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B8AA1F1D75A7B400C96119 /* learnSwiftUITests.m */; };
 		61B8AA2F1D75AB6000C96119 /* sampleSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B8AA2E1D75AB6000C96119 /* sampleSwift.swift */; };
+		FC577074210F1B1000B58D4E /* SampleEnumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC577073210F1B1000B58D4E /* SampleEnumViewController.swift */; };
+		FC5D545A210EDA80008B8EF7 /* SampleAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5D5459210EDA80008B8EF7 /* SampleAssignmentViewController.swift */; };
+		FC5D545C210EE144008B8EF7 /* SampleJudgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5D545B210EE144008B8EF7 /* SampleJudgementViewController.swift */; };
+		FC5D545E210EE28E008B8EF7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5D545D210EE28E008B8EF7 /* BaseViewController.swift */; };
+		FC5D5460210EF123008B8EF7 /* SampleFunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5D545F210EF123008B8EF7 /* SampleFunctionViewController.swift */; };
+		FC5D5462210F039F008B8EF7 /* SampleClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5D5461210F039F008B8EF7 /* SampleClassViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,12 @@
 		61B8AA211D75A7B400C96119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61B8AA2D1D75AB5F00C96119 /* learnSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "learnSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		61B8AA2E1D75AB6000C96119 /* sampleSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sampleSwift.swift; sourceTree = "<group>"; };
+		FC577073210F1B1000B58D4E /* SampleEnumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEnumViewController.swift; sourceTree = "<group>"; };
+		FC5D5459210EDA80008B8EF7 /* SampleAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAssignmentViewController.swift; sourceTree = "<group>"; };
+		FC5D545B210EE144008B8EF7 /* SampleJudgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleJudgementViewController.swift; sourceTree = "<group>"; };
+		FC5D545D210EE28E008B8EF7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FC5D545F210EF123008B8EF7 /* SampleFunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleFunctionViewController.swift; sourceTree = "<group>"; };
+		FC5D5461210F039F008B8EF7 /* SampleClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleClassViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +122,7 @@
 		61B8A9F91D75A7B400C96119 /* learnSwift */ = {
 			isa = PBXGroup;
 			children = (
+				FC5D5458210EDA29008B8EF7 /* Assignment */,
 				61B8A9FD1D75A7B400C96119 /* AppDelegate.h */,
 				61B8A9FE1D75A7B400C96119 /* AppDelegate.m */,
 				61B8AA001D75A7B400C96119 /* ViewController.h */,
@@ -118,6 +131,7 @@
 				617510E31D7691C50058CB3E /* sampleSwiftCell.swift */,
 				617510E51D7696990058CB3E /* secondViewController.swift */,
 				617510E71D76B3AC0058CB3E /* secondViewCell.swift */,
+				FC5D545D210EE28E008B8EF7 /* BaseViewController.swift */,
 				61B8AA031D75A7B400C96119 /* Main.storyboard */,
 				61B8AA061D75A7B400C96119 /* Assets.xcassets */,
 				61B8AA081D75A7B400C96119 /* LaunchScreen.storyboard */,
@@ -152,6 +166,18 @@
 				61B8AA211D75A7B400C96119 /* Info.plist */,
 			);
 			path = learnSwiftUITests;
+			sourceTree = "<group>";
+		};
+		FC5D5458210EDA29008B8EF7 /* Assignment */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D5459210EDA80008B8EF7 /* SampleAssignmentViewController.swift */,
+				FC5D545B210EE144008B8EF7 /* SampleJudgementViewController.swift */,
+				FC5D545F210EF123008B8EF7 /* SampleFunctionViewController.swift */,
+				FC5D5461210F039F008B8EF7 /* SampleClassViewController.swift */,
+				FC577073210F1B1000B58D4E /* SampleEnumViewController.swift */,
+			);
+			name = Assignment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,10 +312,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				61B8AA021D75A7B400C96119 /* ViewController.m in Sources */,
+				FC5D545A210EDA80008B8EF7 /* SampleAssignmentViewController.swift in Sources */,
 				61B8A9FF1D75A7B400C96119 /* AppDelegate.m in Sources */,
 				61B8A9FC1D75A7B400C96119 /* main.m in Sources */,
 				61B8AA2F1D75AB6000C96119 /* sampleSwift.swift in Sources */,
+				FC5D545E210EE28E008B8EF7 /* BaseViewController.swift in Sources */,
+				FC5D5460210EF123008B8EF7 /* SampleFunctionViewController.swift in Sources */,
 				617510E61D7696990058CB3E /* secondViewController.swift in Sources */,
+				FC5D545C210EE144008B8EF7 /* SampleJudgementViewController.swift in Sources */,
+				FC5D5462210F039F008B8EF7 /* SampleClassViewController.swift in Sources */,
+				FC577074210F1B1000B58D4E /* SampleEnumViewController.swift in Sources */,
 				617510E81D76B3AC0058CB3E /* secondViewCell.swift in Sources */,
 				617510E41D7691C50058CB3E /* sampleSwiftCell.swift in Sources */,
 			);

@@ -12,13 +12,13 @@ import Foundation
 
 class sampleSwift: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var dataArray:NSMutableArray!
+    var dataArray = NSMutableArray() as! [String]
     var tableview = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "sample"
+        self.title = "Swift"
         
         self.view.backgroundColor = UIColor.green
         tableview = UITableView(frame: CGRect.init(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: view.frame.size.width, height: view.frame.size.height))
@@ -27,11 +27,8 @@ class sampleSwift: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.view.addSubview(tableview)
         tableview.register(sampleSwiftCell.self, forCellReuseIdentifier: "cell")
         
-        //leftbar
-//        let leftBarItem = UIBarButtonItem(UIBarButtonItemStyle: UIBarButtonItemStyle.plain, target: self, action: #sele)
-//        self.navigationItem.rightBarButtonItem = leftBarItem
-        
-        dataArray = ["我是第一行","我是第二行","我是第三行","我是第四行","我是第五行"];
+        dataArray = ["基本赋值","控制流","函数和必包","对象和类","枚举和结构体"];
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +43,7 @@ class sampleSwift: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let identifier:String = "cell"
         
         let cell = (tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)) as UITableViewCell
-        cell.textLabel?.text = dataArray[indexPath.row] as? String
+        cell.textLabel?.text = dataArray[indexPath.row]
         return cell;
     }
     
@@ -55,7 +52,22 @@ class sampleSwift: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = secondViewController()
+        var vc: UIViewController = secondViewController()
+        switch indexPath.row {
+        case 0:
+            vc = SampleAssignmentViewController()
+        case 1:
+            vc = SampleJudgementViewController ()
+        case 2:
+            vc = SampleFunctionViewController()
+        case 3:
+            vc = SampleClassViewController()
+        case 4:
+            vc = SampleEnumViewController()
+        default:
+            break
+        }
+        vc.title = dataArray[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -66,14 +78,6 @@ class sampleSwift: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return UITableViewCellEditingStyle.delete
     }
-    
-    
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .delete {
-//            dataArray.removeObjectAtIndex(indexPath.row)
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        }
-//    }
     
     
     func actionMethod(){

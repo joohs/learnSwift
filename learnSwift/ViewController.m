@@ -16,12 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"OC";
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    UIButton *brn = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
-    brn.backgroundColor =[UIColor redColor];
-    [self.view addSubview:brn];
-    [brn addTarget:self action:@selector(show) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 300, 100)];
+    btn.layer.borderColor = [UIColor redColor].CGColor;
+    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    btn.layer.borderWidth = 1.f;
+    [btn setTitle:@"跳转到Swift" forState:UIControlStateNormal];
+    btn.center = CGPointMake(self.view.center.x, btn.center.y);
+    [self.view addSubview:btn];
+    [btn addTarget:self action:@selector(show) forControlEvents:UIControlEventTouchUpInside];
 
 }
 - (void)show
